@@ -1,0 +1,15 @@
+[package]
+name = "linked-list-mandos"
+version = "0.0.0"
+authors = [ "you",]
+edition = "2018"
+publish = false
+
+[lib]
+path = "src/linked_list.rs"
+
+[dependencies.elrond-wasm]
+version = "0.27.2"
+
+[dev-dependencies.elrond-wasm-debug]
+version = "0.27.2"

@@ -1,0 +1,116 @@
+{
+    "name": "linked-list-mandos",
+    "comment": "add then check",
+    "steps": [
+        {
+            "step": "setState",
+            "accounts": {
+                "address:owner": {
+                    "nonce": "1",
+                    "balance": "0"
+                }
+            },
+            "newAddresses": [
+                {
+                    "creatorAddress": "address:owner",
+                    "creatorNonce": "1",
+                    "newAddress": "sc:linked_list"
+                }
+            ]
+        },
+        {
+            "step": "scDeploy",
+            "txId": "1",
+            "tx": {
+                "from": "address:owner",
+                "contractCode": "file:../output/linked-list-mandos.wasm",
+                "arguments": [],
+                "gasLimit": "5,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": [],
+                "status": "",
+                "logs": [],
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "scQuery",
+            "txId": "2",
+            "tx": {
+                "to": "sc:linked_list",
+                "function": "getWaitingRoom",
+                "arguments": []
+            },
+            "expect": {
+                "out": [],
+                "status": "",
+                "logs": []
+            }
+        },
+        {
+            "step": "scCall",
+            "txId": "3",
+            "tx": {
+                "from": "address:owner",
+                "to": "sc:linked_list",
+                "function": "add",
+                "arguments": [],
+                "gasLimit": "5,000,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": [
+                    "address:owner"
+                ],
+                "status": "",
+                "logs": [],
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "scQuery",
+            "txId": "4",
+            "tx": {
+                "to": "sc:linked_list",
+                "function": "getWaitingRoom",
+                "arguments": []
+            },
+            "expect": {
+                "out": [
+                    "address:owner"
+
+                ],
+                "status": "",
+                "logs": []
+            }
+        },
+        {
+            "step": "dumpState",
+            "comment": "print everything to console"
+          },
+        {
+            "step": "checkState",
+            "accounts": {
+                "address:owner": {
+                    "nonce": "*",
+                    "balance": "0",
+                    "storage": {},
+                    "code": ""
+                },
+                "sc:linked_list": {
+                    "nonce": "0",
+                    "balance": "0",
+                    "storage": {
+                        "str:waiting_room.node|u32:1": "address:owner|u32:1|u32:0|u32:0",
+                        "str:waiting_room.info": "u32:1|u32:1|u32:1|u32:1"
+                    },
+                    "code": "file:../output/linked-list-mandos.wasm"
+                }
+            }
+        }
+    ]
+}
