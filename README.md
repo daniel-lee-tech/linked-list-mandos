@@ -1,29 +1,9 @@
-# Interaction
+# An example for using Linked List Mapper on Elrond Wasm Smart contracts with Mandos Testing
 
-## On devnet
+This repo is a good example of how to properly test the `LinkedListMapper`.
 
-Deploy & interact with contract:
+More examples can be found here
 
-```
-python3 ./interaction/playground.py --pem=./testnet/wallets/users/alice.pem --proxy=http://localhost:7950
-```
+https://github.com/ElrondNetwork/elrond-wasm-rs/blob/master/contracts/feature-tests/basic-features/mandos/storage_mapper_linked_list.scen.json#L66
 
-Interact with existing contract:
-
-```
-python3 ./interaction/playground.py --pem=./testnet/wallets/users/alice.pem --proxy=http://localhost:7950 --contract=erd1...
-```
-
-## On testnet
-
-Deploy & interact with contract:
-
-```
-python3 ./interaction/playground.py --pem=my.pem --proxy=https://testnet-gateway.elrond.com
-```
-
-Interact with existing contract:
-
-```
-python3 ./interaction/playground.py --pem=my.pem --proxy=https://testnet-gateway.elrond.com --contract=erd1...
-```
+https://github.com/ElrondNetwork/elrond-wasm-rs/blob/master/contracts/feature-tests/basic-features/mandos/storage_mapper_linked_list.scen.json#L237
